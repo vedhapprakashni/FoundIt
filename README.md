@@ -1,12 +1,12 @@
-# FoundIt - Campus Lost & Found 🕵️‍♀️
+# FoundIt - Campus Lost & Found 
 
-FoundIt is a GenZ-style, AI-powered lost and found platform designed for university campuses. It allows users to post lost and found items without needing a login, using AI to match descriptions and images.
+FoundIt is an AI-powered lost and found platform designed for university campuses. It allows users to post lost and found items without needing a login, using AI to match descriptions and images.
 
 ## Features ✨
 
 - **No Login Required**: Just drop the details and go.
 - **AI Matching**: Automatically finds potential matches between lost and found items.
-- **Visual First**: Heavy use of images and a vibrant, "vibey" UI.
+- **Visual First**: Heavy use of images and a vibrant UI
 - **Mobile Friendly**: Fully responsive design.
 
 ## Tech Stack 🛠️
