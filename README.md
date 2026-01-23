@@ -20,7 +20,7 @@ FoundIt is an AI-powered lost and found platform designed for university campuse
 ### Backend
 - **Framework**: [FastAPI](https://fastapi.tiangolo.com/)
 - **Database**: SQLite (with SQLAlchemy)
-- **AI/ML**: Sentence Transformers (for text similarity), Pillow (image processing)
+- **AI/ML**: Sentence Transformers for text similarity, Pillow for image processing
 
 ## Getting Started 🚀
 
