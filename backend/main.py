@@ -58,6 +58,7 @@ async def create_lost_item(
 async def create_found_item(
     description: str = Form(...),
     found_location: str = Form(...),
+    contact_info: str = Form(...),
     image: UploadFile = File(...),
     db: Session = Depends(get_db)
 ):
@@ -70,7 +71,8 @@ async def create_found_item(
         
     item_data = schemas.FoundItemCreate(
         description=description,
-        found_location=found_location
+        found_location=found_location,
+        contact_info=contact_info
     )
     return crud.create_found_item(db, item_data, file_path)
 

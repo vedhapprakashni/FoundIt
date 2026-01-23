@@ -15,6 +15,7 @@ export default function FoundPage() {
     const [formData, setFormData] = useState({
         description: '',
         found_location: '',
+        contact_info: '',
         image: null as File | null
     });
 
@@ -26,6 +27,7 @@ export default function FoundPage() {
             const data = new FormData();
             data.append('description', formData.description);
             data.append('found_location', formData.found_location);
+            data.append('contact_info', formData.contact_info);
             if (formData.image) {
                 data.append('image', formData.image);
             } else {
@@ -102,6 +104,19 @@ export default function FoundPage() {
                                 className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-genz-pink focus:ring-2 focus:ring-genz-pink/20 outline-none transition-all bg-gray-50/50"
                                 value={formData.found_location}
                                 onChange={e => setFormData({ ...formData, found_location: e.target.value })}
+                            />
+                        </div>
+
+                        {/* Contact Info */}
+                        <div>
+                            <label className="block text-sm font-semibold mb-2 text-gray-700">Contact Details (Required)</label>
+                            <input
+                                type="text"
+                                required
+                                placeholder="e.g. DM me on Insta @foundit_finder"
+                                className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:border-genz-pink focus:ring-2 focus:ring-genz-pink/20 outline-none transition-all bg-gray-50/50"
+                                value={formData.contact_info}
+                                onChange={e => setFormData({ ...formData, contact_info: e.target.value })}
                             />
                         </div>
 

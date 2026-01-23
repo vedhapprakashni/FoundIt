@@ -28,6 +28,7 @@ def create_found_item(db: Session, item: schemas.FoundItemCreate, image_path: st
     db_item = models.FoundItem(
         description=item.description,
         found_location=item.found_location,
+        contact_info=item.contact_info,
         image_url=image_path,
         text_embedding=text_emb,
         image_embedding=img_emb

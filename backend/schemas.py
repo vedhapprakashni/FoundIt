@@ -20,6 +20,7 @@ class LostItem(LostItemBase):
 class FoundItemBase(BaseModel):
     description: str
     found_location: str
+    contact_info: str
 
 class FoundItemCreate(FoundItemBase):
     pass

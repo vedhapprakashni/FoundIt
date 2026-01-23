@@ -19,6 +19,7 @@ class FoundItem(Base):
     id = Column(Integer, primary_key=True, index=True)
     description = Column(String)
     found_location = Column(String) # Where it was found
+    contact_info = Column(String) # Contact details for the finder
     image_url = Column(String)
     text_embedding = Column(JSON)
     image_embedding = Column(JSON)

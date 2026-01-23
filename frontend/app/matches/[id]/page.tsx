@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import axios from 'axios';
 import { motion } from 'framer-motion';
-import { ArrowLeft, MapPin, Loader2 } from 'lucide-react';
+import { ArrowLeft, MapPin, Loader2, Check } from 'lucide-react';
 import Link from 'next/link';
 
 interface Match {
@@ -11,6 +11,7 @@ interface Match {
         id: number;
         description: string;
         found_location: string;
+        contact_info?: string;
         image_url: string;
     };
     score: number;
@@ -21,6 +22,11 @@ export default function MatchesPage() {
     const id = params?.id;
     const [matches, setMatches] = useState<Match[]>([]);
     const [loading, setLoading] = useState(true);
+    const [claimedItems, setClaimedItems] = useState<number[]>([]);
+
+    const handleClaim = (foundId: number) => {
+        setClaimedItems([...claimedItems, foundId]);
+    };
 
     useEffect(() => {
         if (id) {
@@ -93,9 +99,26 @@ export default function MatchesPage() {
                                     <p className="text-gray-600 text-sm mb-6 line-clamp-2">
                                         {match.found_item.description}
                                     </p>
-                                    <button className="bg-black text-white font-bold py-2 text-sm rounded-full w-full hover:scale-105 transition-all shadow-lg active:scale-95">
-                                        Claim Item
-                                    </button>
+
+                                    {claimedItems.includes(match.found_item.id) ? (
+                                        <div className="bg-green-50 border border-green-200 rounded-xl p-4 animate-in fade-in zoom-in duration-300">
+                                            <div className="flex items-center text-green-700 font-bold mb-2">
+                                                <Check size={18} className="mr-2" />
+                                                Claimed! ✅
+                                            </div>
+                                            <p className="text-sm text-gray-600">
+                                                <span className="font-semibold block text-gray-800">Contact Finder:</span>
+                                                {match.found_item.contact_info || "No contact info provided"}
+                                            </p>
+                                        </div>
+                                    ) : (
+                                        <button
+                                            onClick={() => handleClaim(match.found_item.id)}
+                                            className="bg-black text-white font-bold py-2 text-sm rounded-full w-full hover:scale-105 transition-all shadow-lg active:scale-95"
+                                        >
+                                            Claim Item
+                                        </button>
+                                    )}
                                 </div>
                             </motion.div>
                         ))}
